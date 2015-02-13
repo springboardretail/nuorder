@@ -1,0 +1,44 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://buyer.sandbox1.nuorder.com/api/product/541204aca01ceed9650486a2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      User-Agent:
+      - Faraday v0.9.1
+      Authorization:
+      - oAuth oauth_consumer_key=OAUTH_CONSUMER_KEY,oauth_timestamp=1424367866,oauth_nonce=084a18900cd8fd50,oauth_version=1.0,oauth_signature_method=HMAC-SHA1,oauth_token=OAUTH_TOKEN,oauth_signature=6b72fa36e4b22f30378b91761f0e623b0c779e07
+      Accept:
+      - application/json
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 404
+      message: 
+    headers:
+      Server:
+      - nginx/1.4.6
+      Date:
+      - Thu, 19 Feb 2015 17:44:34 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '42'
+      X-Powered-By:
+      - Express
+      Request-Token:
+      - '1424367874986'
+      Cache-Control:
+      - private,max-age=0, must-revalidate
+      ETag:
+      - '"-1929168688"'
+    body:
+      encoding: UTF-8
+      string: '{"code":404,"message":"product not found"}'
+    http_version: 
+  recorded_at: Thu, 19 Feb 2015 17:44:36 GMT
+recorded_with: VCR 2.9.3
