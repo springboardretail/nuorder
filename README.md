@@ -22,33 +22,35 @@ Or install it yourself as:
 
 ## Usage
 
-### Initialization
+### Configuration
 
-To create a new `Connector` you must pass the following variables:
+The following options are available when configuring Nuorder:
 
-1. `app_name`
-2. `base_uri`
-3. `config` hash. You must indicate the following keys:
-  * `oauth_consumer_key`
-  * `oauth_consumer_secret`
-  * `oauth_token`
-  * `oauth_token_secret`
-  * `oauth_callback` If none it will be set to `'oob'`
+1. `app_name` Default: `'Springboard Retail'`
+2. `api_endpoint` Default: `'http://buyer.nuorder.com'`
+3. `oauth_consumer_key`
+4. `oauth_consumer_secret`
+5. `oauth_token`
+6. `oauth_token_secret`
+7. `oauth_callback` Default: `'oob'`
     * Nuorder will POST the callback the `oauth_verifier` token.
     * If the callback is set to `'oob'`, the `oauth_verifier` token must be supplied manually by the user. 
 
 #### Example
 
 ```ruby
-config = {
-  oauth_consumer_key: 'key',
-  oauth_consumer_secret: 'key',
-  oauth_token: 'key',
-  oauth_token_secret: 'key',
-  oauth_callback: 'myapp.example.com/callback' 
-}
+Nuorder.configure do |config|
+  config.oauth_consumer_key: 'key'
+  config.oauth_consumer_secret: 'key'
+  config.oauth_token: 'key'
+  config.oauth_token_secret: 'key'
+end
+````
 
-Nuorder::Connector.new('my-app', 'http://buyer.sandbox1.nuorder.com', config)
+or
+
+```
+client = Nuorder::Client.new(oauth_token: 'key', oauth_token_secret: 'key')
 ```
 
 ### Authorization (OAuth 1.0)
@@ -57,18 +59,21 @@ Nuorder uses OAuth 1.0 for authorization.
 
 To get the oauth tokens the following methods must be called:
 
-1. `connector.api_initiate`
+1. `Nuorder.api_initiate`
   * An inital call will be made in order to get the temporary tokens.
-2. `connector.get_oauth_token(oauth_verifier)`
+2. `Nuorder.get_oauth_token(oauth_verifier)`
   * Call for getting the permanent tokens.
   * `oauth_verifier` must be supplied. 
 
 Retrieve tokens:
 
 ```ruby
-oauth_token = connector.oauth.token
-oauth_token_secret = connector.oauth.token_secret
+oauth_token = Nuorder.oauth_token
+oauth_token_secret = Nuorder.oauth_token_secret
 ```
+
+### Requests
+TODO
 
 ## Contributing
 
