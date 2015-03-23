@@ -28,7 +28,7 @@ module Nuorder
       end
       self
     end
-    alias setup reset!
+    alias_method :setup, :reset!
 
     def options
       Hash[Nuorder::Configurable.keys.map{|key| [key, instance_variable_get(:"@#{key}")]}]
