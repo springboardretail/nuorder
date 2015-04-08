@@ -40,10 +40,10 @@ The following options are available when configuring Nuorder:
 
 ```ruby
 Nuorder.configure do |config|
-  config.oauth_consumer_key: 'key'
-  config.oauth_consumer_secret: 'key'
-  config.oauth_token: 'key'
-  config.oauth_token_secret: 'key'
+  config.oauth_consumer_key = 'key'
+  config.oauth_consumer_secret = 'key'
+  config.oauth_token = 'key'
+  config.oauth_token_secret = 'key'
 end
 ````
 
