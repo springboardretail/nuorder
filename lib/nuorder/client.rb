@@ -47,6 +47,27 @@ module Nuorder
       validate_response(response)
     end
 
+    def orders(status:)
+      get("/api/orders/#{status}/detail").body
+    end
+
+    def product(id:)
+      get("/api/product/#{id}").body
+    end
+
+    def orders_with_product_details(status:)
+      orders = orders(status: status)
+      orders.each do |order|
+        line_items = order['line_items']
+        line_items.map do |line_item|
+          product_id = line_item['product']['_id']
+          product_details = product(id: product_id)
+          line_item['product'].merge!(product_details)
+        end
+      end
+      orders
+    end
+
     private
 
     # Set instance variables passed in options, but fallback to module defaults

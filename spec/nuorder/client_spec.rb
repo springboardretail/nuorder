@@ -95,6 +95,34 @@ describe Nuorder::Client do
     end
   end
 
+  describe '#orders_with_product_details' do
+    let (:orders_dummy) do
+      [
+        {
+          'a' => 1,
+          'line_items' => [
+            {'product' => {'_id' => 1, 'b' => 2}},
+            {'product' => {'_id' => 2, 'b' => 3}},
+          ]
+        }
+      ]
+    end
+    let (:product_dummy) do
+      {'_id' => 1, 'b' => 4, 'c' => 5 }
+    end
+
+    before do
+      allow(client).to receive(:orders).and_return(orders_dummy)
+      allow(client).to receive(:product).and_return(product_dummy)
+      @orders = client.orders_with_product_details(status: 'processed')
+    end
+
+    it 'returns extra details of products' do
+      first_product = @orders.first['line_items'].first['product']
+      expect(first_product.key? 'c').to be true
+    end
+  end
+
   describe '#oauth_headers' do
     let (:headers) { client.oauth_headers('GET', '/api/product/123') }
 
