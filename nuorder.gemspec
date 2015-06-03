@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "nuorder"
   spec.version       = Nuorder::VERSION
   spec.authors       = ["Springboard Retail"]
-  spec.email         = ["jay@springboardretail.com"]
+  spec.email         = ["jason.stotz@gmail.com"]
   spec.summary       = %q{Library that wraps up the communication with the API services from Nuorder.com}
   spec.homepage      = ""
   spec.license       = "MIT"
