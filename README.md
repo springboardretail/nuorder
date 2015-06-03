@@ -1,8 +1,8 @@
-# Nuorder
+# NuOrder
 
-Gem that wraps up the communication with the API services from [Nuorder](http://www.nuorder.com/)
+Gem that wraps up the communication with the API services from [NuORDER](http://www.nuorder.com/)
 
-[Faraday](https://github.com/lostisland/faraday) and [Excon](https://github.com/excon/excon) are used for creating permanent connections.
+[Faraday](https://github.com/lostisland/faraday) and [Excon](https://github.com/excon/excon) are used for creating persistent connections.
 
 ## Installation
 
@@ -24,7 +24,7 @@ Or install it yourself as:
 
 ### Configuration
 
-The following options are available when configuring Nuorder:
+The following options are available when configuring NuORDER:
 
 1. `app_name` Default: `'Springboard Retail'`
 2. `api_endpoint` Default: `'http://buyer.nuorder.com'`
@@ -33,7 +33,7 @@ The following options are available when configuring Nuorder:
 5. `oauth_token`
 6. `oauth_token_secret`
 7. `oauth_callback` Default: `'oob'`
-    * Nuorder will POST the callback the `oauth_verifier` token.
+    * NuORDER will POST the callback the `oauth_verifier` token.
     * If the callback is set to `'oob'`, the `oauth_verifier` token must be supplied manually by the user. 
 
 #### Example
@@ -55,7 +55,7 @@ client = Nuorder::Client.new(oauth_token: 'key', oauth_token_secret: 'key')
 
 ### Authorization (OAuth 1.0)
 
-Nuorder uses OAuth 1.0 for authorization.
+NuORDER uses OAuth 1.0 for authorization.
 
 To get the oauth tokens the following methods must be called:
 
