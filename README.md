@@ -1,4 +1,4 @@
-# NuOrder
+# NuORDER
 
 Gem that wraps up the communication with the API services from [NuORDER](http://www.nuorder.com/)
 
