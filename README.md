@@ -1,5 +1,7 @@
 # NuORDER
 
+[![Build Status](https://travis-ci.org/springboardretail/nuorder.svg)](https://travis-ci.org/springboardretail/nuorder)
+
 Gem that wraps up the communication with the API services from [NuORDER](http://www.nuorder.com/)
 
 [Faraday](https://github.com/lostisland/faraday) and [Excon](https://github.com/excon/excon) are used for creating persistent connections.
