@@ -57,15 +57,10 @@ module Nuorder
 
     def orders_with_product_details(status:)
       orders = orders(status: status)
-      orders.each do |order|
-        line_items = order['line_items']
-        line_items.map do |line_item|
-          product_id = line_item['product']['_id']
-          product_details = product(id: product_id)
-          line_item['product'].merge!(product_details)
-        end
+      orders.map! do |order|
+        add_product_details!(line_items: order['line_items'])
+        order
       end
-      orders
     end
 
     private
@@ -91,6 +86,15 @@ module Nuorder
     def validate_response(response)
       return response if [200, 201].include?(response.status)
       fail ApiError, "NuOrder API Error #{response.body['code']}. #{response.body['message']}"
+    end
+
+    def add_product_details!(line_items:)
+      line_items.map! do |line_item|
+        product_id = line_item['product']['_id']
+        product_details = product(id: product_id)
+        line_item['product'].merge!(product_details)
+        line_item
+      end
     end
   end
 end
