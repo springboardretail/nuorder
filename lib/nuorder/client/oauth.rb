@@ -1,3 +1,5 @@
+require 'securerandom'
+
 module Nuorder
   class Client
     module Oauth
