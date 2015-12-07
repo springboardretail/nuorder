@@ -15,3 +15,5 @@ mkmf.log
 .rspec
 .env
 .idea
+.ruby-version
+.ruby-gemset

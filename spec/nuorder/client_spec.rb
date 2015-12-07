@@ -70,7 +70,6 @@ describe Nuorder::Client do
       oauth_verifier = 'aKRzurszYEA9mpun'
       client.oauth_token = 'p5UzX46KqwdB5Bj3'
       client.oauth_token_secret = 'YaRS2Vy9uSEDVhwu95NaCDPQ'
-
       client.get_oauth_token(oauth_verifier)
       expect(client.oauth_token).not_to be_nil
       expect(client.oauth_token_secret).not_to be_nil
@@ -113,6 +112,24 @@ describe Nuorder::Client do
     it 'returns extra details of products' do
       first_product = @orders.first['line_items'].first['product']
       expect(first_product.key? 'c').to be true
+    end
+  end
+
+  describe '#process_order' do
+    let (:order) do
+      {
+        '_id' => "whatever",
+        'a' => 1,
+      }
+    end
+
+    before do
+      allow(client).to receive(:process_order).with(order).and_return(order)
+      @order = client.process_order(order)
+    end
+
+    it 'returns extra details of products' do
+      expect(@order['_id']).to eq 'whatever'
     end
   end
 
