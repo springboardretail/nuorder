@@ -27,6 +27,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'dotenv', '~> 1.0.2'
 
   spec.add_runtime_dependency 'faraday', '~> 0.9.1'
-  spec.add_runtime_dependency 'excon', '~> 0.45.3'
+  spec.add_runtime_dependency 'excon', '>= 0.45.3'
   spec.add_runtime_dependency 'faraday_middleware-multi_json', '~> 0.0.6'
 end
