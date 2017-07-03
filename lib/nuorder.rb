@@ -8,6 +8,10 @@ module Nuorder
   extend Nuorder::Configurable
 
   class << self
+    def new(options = {})
+      Nuorder::Client.new(options)
+    end
+
     def client
       @client = Nuorder::Client.new(options) unless defined?(@client) && @client.same_options?(options)
       @client
@@ -21,7 +25,4 @@ module Nuorder
       client.send(method_name, *args, &block)
     end
   end
-
 end
-
-Nuorder.setup
