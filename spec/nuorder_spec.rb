@@ -1,17 +1,9 @@
 require 'spec_helper'
 
 describe Nuorder do
-  before do
-    Nuorder.reset!
-  end
-
-  after do
-    Nuorder.reset!
-  end
-
-  it 'sets defaults' do
-    Nuorder::Configurable.keys.each do |key|
-      expect(Nuorder.instance_variable_get(:"@#{key}")).to eq(Nuorder::Default.options[key])
+  describe '#new' do
+    it 'creates a Nuorder::Client' do
+      expect(Nuorder.new).to be_kind_of Nuorder::Client
     end
   end
 
@@ -44,5 +36,4 @@ describe Nuorder do
       end
     end
   end
-
 end

@@ -37,7 +37,7 @@ The following options are available when configuring NuORDER:
 6. `oauth_token_secret`
 7. `oauth_callback` Default: `'oob'`
     * NuORDER will POST the callback the `oauth_verifier` token.
-    * If the callback is set to `'oob'`, the `oauth_verifier` token must be supplied manually by the user. 
+    * If the callback is set to `'oob'`, the `oauth_verifier` token must be supplied manually by the user.
 
 #### Example
 
@@ -66,7 +66,7 @@ To get the oauth tokens the following methods must be called:
   * An inital call will be made in order to get the temporary tokens.
 2. `Nuorder.get_oauth_token(oauth_verifier)`
   * Call for getting the permanent tokens.
-  * `oauth_verifier` must be supplied. 
+  * `oauth_verifier` must be supplied.
 
 Retrieve tokens:
 

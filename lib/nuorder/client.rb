@@ -11,6 +11,7 @@ module Nuorder
     include Nuorder::Client::Oauth
 
     def initialize(options = {})
+      options = Nuorder::Default.options.merge(options)
       set_instance_variables(options)
     end
 
@@ -23,8 +24,8 @@ module Nuorder
       headers = oauth_headers('GET', '/api/initiate', addons)
       response = connection.get '/api/initiate', {}, headers
 
-      Nuorder.oauth_token = response.body['oauth_token']
-      Nuorder.oauth_token_secret = response.body['oauth_token_secret']
+      @oauth_token = response.body['oauth_token']
+      @oauth_token_secret = response.body['oauth_token_secret']
 
       response
     end
@@ -35,8 +36,8 @@ module Nuorder
       headers = oauth_headers('GET', '/api/token', { 'oauth_verifier' => oauth_verifier })
       response = connection.get '/api/token', {}, headers
 
-      Nuorder.oauth_token = response.body['oauth_token']
-      Nuorder.oauth_token_secret = response.body['oauth_token_secret']
+      @oauth_token = response.body['oauth_token']
+      @oauth_token_secret = response.body['oauth_token_secret']
 
       response
     end
@@ -65,10 +66,10 @@ module Nuorder
 
     private
 
-    # Set instance variables passed in options, but fallback to module defaults
+    # Set instance variables passed in options
     def set_instance_variables(options)
       Nuorder::Configurable.keys.each do |key|
-        instance_variable_set(:"@#{key}", options[key] || Nuorder.instance_variable_get(:"@#{key}"))
+        instance_variable_set(:"@#{key}", options[key])
       end
     end
 
