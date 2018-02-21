@@ -48,12 +48,24 @@ module Nuorder
       validate_response(response)
     end
 
+
+    def post(url, params: nil)
+      headers = oauth_headers('POST', url)
+      response = connection.post url, params, headers
+      validate_response(response)
+    end
+
     def orders(status:)
       get("/api/orders/#{status}/detail").body
     end
 
     def product(id:)
       get("/api/product/#{id}").body
+    end
+
+    def process_order(order)
+      order_id = order["_id"]
+      post("/api/order/#{order_id}/process").body
     end
 
     def orders_with_product_details(status:)
