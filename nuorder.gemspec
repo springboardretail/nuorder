@@ -17,12 +17,12 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.required_ruby_version = '~> 2.1'
+  spec.required_ruby_version = '>= 2.6'
 
   spec.add_development_dependency 'bundler', '~> 2.3'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec','~> 3.2.0'
-  spec.add_development_dependency 'byebug', '~> 3.5.1'
+  spec.add_development_dependency 'byebug', '~> 11.1.3'
   spec.add_development_dependency 'vcr', '~> 2.9.3'
   spec.add_development_dependency 'dotenv', '~> 1.0.2'
 
