@@ -1,7 +1,7 @@
 # NuORDER
 
 [![Gem Version](https://badge.fury.io/rb/nuorder.svg)](http://badge.fury.io/rb/nuorder)
-[![Build Status](https://travis-ci.org/springboardretail/nuorder.svg)](https://travis-ci.org/springboardretail/nuorder)
+[![Build](https://github.com/springboardretail/nuorder/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/springboardretail/nuorder/actions/workflows/build.yml)
 
 Gem that wraps up the communication with the API services from [NuORDER](http://www.nuorder.com/)
 
