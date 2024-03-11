@@ -1,6 +1,6 @@
 require 'faraday'
+require 'faraday_middleware'
 require 'excon'
-require 'faraday_middleware-multi_json'
 require 'nuorder/configurable'
 require 'nuorder/client/oauth'
 
@@ -79,7 +79,7 @@ module Nuorder
 
     def build_connection
       Faraday.new(url: @api_endpoint) do |builder|
-        builder.response :multi_json
+        builder.response :json
         builder.adapter :excon, persistent: true
       end
     end
