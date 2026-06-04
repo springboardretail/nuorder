@@ -17,16 +17,16 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 
-  spec.required_ruby_version = '>= 2.6'
+  spec.required_ruby_version = '>= 3.0'
 
-  spec.add_development_dependency 'bundler', '~> 2.3'
+  spec.add_development_dependency 'bundler', '~> 2.5'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec','~> 3.2.0'
   spec.add_development_dependency 'byebug', '~> 11.1.3'
   spec.add_development_dependency 'vcr', '~> 2.9.3'
   spec.add_development_dependency 'dotenv', '~> 1.0.2'
+  spec.add_development_dependency 'base64'
 
-  spec.add_runtime_dependency 'faraday', '= 1.1.0'
-  spec.add_runtime_dependency 'excon', '>= 0.109.0'
-  spec.add_runtime_dependency 'faraday_middleware', '= 1.1.0'
+  spec.add_runtime_dependency 'faraday', '~> 2.14'
+  spec.add_runtime_dependency 'faraday-excon', '~> 2.1'
 end
