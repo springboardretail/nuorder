@@ -1,6 +1,5 @@
 require 'faraday'
-require 'faraday_middleware'
-require 'excon'
+require 'faraday/excon'
 require 'nuorder/configurable'
 require 'nuorder/client/oauth'
 
